@@ -7,7 +7,7 @@ import bitcoin
 class TestBitcoin(TestCase):
     @patch('bitcoin.get_exchange_rate')
     def test_get_exchange_rate(self, mock_bitcoin_call):
-        mock_bitcoin_call.return_value = {'bpi': 
+        example_bitcoin_response = {'bpi': 
                     {'EUR': {'code': 'EUR', 'description': 'Euro',
                              'rate': '26,112.5741','rate_float': 26112.5741, 
                              'symbol': '&euro;'},
@@ -32,7 +32,8 @@ class TestBitcoin(TestCase):
         
         expected_output = 26112.5741
 
-        euro = bitcoin.convert_bitcoin_to_euro(mock_bitcoin_call)
+        # euro = bitcoin.convert_bitcoin_to_euro(mock_bitcoin_call)
+        euro = bitcoin.convert_bitcoin_to_euro(example_bitcoin_response)
 
 
         self.assertEqual(expected_output, euro)
