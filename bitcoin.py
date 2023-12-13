@@ -41,5 +41,6 @@ def convert_bitcoin_to_euro(data):
     return euro_exchange_rate
 
 
-
-main()
+# without this, the tests will call main when this file is imported
+if __name__ == '__main__':
+    main()
